@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //#region Routes
-app.get('/', (req, res)=> res.send('Hello social-media-app')); //test route
+app.get('/', (req, res)=> res.send('Hello social-media-app2')); //test route
 app.use('/api/auth', authRouter);                              // =>>I want when having '/api/auth' to use authRouter(if we have in auth.js GET, POST, PUT, DELETE it will go to the " ('/') " and use the "/" and then come back and added the following path: '/api/auth'(this is not about the pathfile) to fo forewword )
 app.use('/api/posts',postsRouter);
 app.use('/api/users', userRouter);
