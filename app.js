@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //#region Routes
-app.get('/', (req, res)=> res.send('Success! Social media app hosted!')); 
+// app.get('/', (req, res)=> res.send('Success! Social media app hosted!')); 
 app.use('/api/auth', authRouter);                              
 app.use('/api/posts',postsRouter);
 app.use('/api/users', userRouter);
@@ -28,15 +28,15 @@ app.listen(process.env.PORT ||5000)
 //#region Connect to MongoDB
 
 // process.env.NODE_ENV  it is set up by mongodb
+//what we want to deploy => frontend 
 if(process.env.NODE_ENV === 'production'){
-	//ce dorin sa dam deploy => frontend 
 	app.use(express.static('client/build'));
-	//react are script care se numeste build => npm run build=> se creaza un folder build cu codul minificat intr-un fisier index.html
 	app.get( '*', (req, res) => {
 		req.sendFile(path.resolve(__dirname, 'build', 'index.html'))
 	});
-} //remeber: react build duce intr-un folder build, un fisier index.html care va fi pct care deschide app
-
+} 
+//react are script care se numeste build => npm run build=> se creaza un folder build cu codul minificat intr-un fisier index.html
+//remeber: react build duce intr-un folder build, un fisier index.html care va fi pct care deschide app
 //trebui sa ii spunem cum sa faca build
 
 
