@@ -61,9 +61,9 @@ router.post('/', [auth,
 // @access        Private - only logged in users can see all posts from all users
 
 router.get('/', async (request, response) => {
-	// sort the post desceding by added date
+	
 	try {
-		const posts = await Post.find().sort({ date: -1 }); //SA LE SORTEZE IN ORDINE DESCRESCATOARE A DATEI POSTATE
+		const posts = await Post.find().sort({ date: -1 }); 
 		response.json(posts);
 	} catch (error) {
 		console.error(error.message);
@@ -308,14 +308,5 @@ router.delete(
 	}
 );
 
-
-
-
 export default router ;
 
-
-/**JAvaDoc
- * 
- *  express.Router() =>  is the package that will create the endpoint
- * 
- */

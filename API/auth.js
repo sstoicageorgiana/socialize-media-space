@@ -41,11 +41,8 @@ router.get('/', auth, (req, res) => res.send('Test auth route 2'));
 //@route            POST api/auth
 //@description      loginin registerd user  
 //@access           Public
-
-
 router.post('/', 
 [
-
     check('email', 'Please use a valid e-mail').isEmail(),
     check('password', 'The password must contain at list 4 characters').isLength({min:4}),
 ], async(req, res) => {
@@ -63,17 +60,12 @@ router.post('/',
         if(!user){
             return res.status(400).json({errors: "User do not exist"})
         } 
-        
 
-        //compare plain text with hash 
         const idValidPassword = await bcryptjs.compare(password, user.password) ;
         console.log( `Pass is valid : ${idValidPassword}`);
         if(!idValidPassword){
             return res.status(400).json({errors: "Password is not correct"})
-        } 
-        
-        //la login trebuie sa dam token-ul
-        //imi doresc ca raspumsul pe care o sa il folosesc in ui candva sa contina tokenul 
+        }  
         const payload = {
             user: {
                 id: user.id, 
@@ -89,29 +81,13 @@ router.post('/',
         
     }
     catch(error){
-
     }
-   
-
-
-
-
-
 })
-
 //#endregion
 
 
 export default router;
 
-/**JAvaDoc
- * 
- *  express.Router() =>  is the package that will create the endpoint
- * 
- * export default router 
- *      => when using export default it will take the exported object
- *      => when the router is imported it can be imported with the same name or a different name
- */
 
 
 

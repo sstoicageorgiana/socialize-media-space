@@ -95,15 +95,6 @@ router.post('/',
 
             //#region RETURN "TOKANIZE" INFO TO THE USER WITH EXPIRATION DATE
 
-            //un raspuns  este o info despre user, nu o vrem in front-end 
-            //este ok ca atunci cand ma logez sa primesc un token si pe baza lui
-            //aplicatia sa stie ...
-            //ascundem un user intr-un token
-            //pe baza id ului putem implementa ce poate vedea cine 
-            // tokenul ce se intoarce catre utilizator vrem sa il folosim in ui si sa il punem in localstorage!
-            //ce vom pune in token => pe baza acestui id vom sti ce user poate folosi ce
-            //in token we have the uniqness of the user
-            //the user after it is saved return an id
   
             const payload = {
                 user: {
@@ -112,7 +103,6 @@ router.post('/',
             };
 
             console.log("process.env.jwtsecret: ", process.env.jwtsecret);
-            //payload=> id din user cand s-a salvat recordul, jwtSecret=> "salt", timp de expirare
             jsonwebtoken.sign(payload, process.env.jwtSecret, {expiresIn:360000}, (err, token )=> {
                 if(err)  throw err;
                 return res.json({
@@ -121,19 +111,12 @@ router.post('/',
             });
             
             //#endregion 
-
-        //    return res.status(201).json(user);
         }catch(error){
                 console.log(error);
                 res.status(500).send('Server error!');
         }
     }
 })
-
-
-//a POST means i have a request => STEP 1 in Postman
-
-
 
 
 //#endregion
