@@ -1,5 +1,5 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL } from '../actions/constants';
-import { setAlert } from '../actions/alert';
+// import { setAlert } from '../actions/alert';
 
 const initialState = {
 	token: localStorage.getItem('token'),
@@ -16,7 +16,8 @@ export default function (state = initialState, action) {
              //put the token in local storage, to remember and use it for resources and to know who i am
 			localStorage.setItem('token', payload.token);
             //old state, payload(token), autenficiarea (it was done), loading:false(the moment of reg is done)
-            setAlert('Registration was successfully', 'success',3000);
+            alert("Registration was successfully");
+            // setAlert('Registration was successfully', 'success',3000);
 			return { ...state, ...payload, isAuthenticated: true, loading: false };
 		case REGISTER_FAIL:
 			localStorage.removeItem('token');
