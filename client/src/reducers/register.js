@@ -1,4 +1,5 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL } from '../actions/constants';
+import { setAlert } from '../actions/alert';
 
 const initialState = {
 	token: localStorage.getItem('token'),
