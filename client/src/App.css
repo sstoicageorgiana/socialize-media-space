@@ -203,6 +203,25 @@ body {
 	margin: 3rem 0;
 }
 
+/* Alert */
+.alert-container {
+	max-width: 1100px;
+	position: relative;
+	top: 80px;
+	margin: auto;
+	padding: 0 2rem;
+	margin-bottom: 5rem;
+}
+
+.alert {
+	padding: 0.8rem;
+	margin: 1rem 0;
+	opacity: 0.9;
+	background: var(--light-color);
+	color: #333;
+	border-radius: 20px;
+}
+
 .btn-primary,
 .bg-primary,
 .badge-primary,
@@ -313,3 +332,5 @@ button {
 .table th {
 	background: var(--light-color);
 }
+
+

@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
 import axios from 'axios';
+import { setAlert } from '../../actions/alert'; //va fi prop a componentei
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Register = () => {
+const Register = ( props) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -16,6 +19,7 @@ const Register = () => {
 		e.preventDefault();
 		if (password !== confirmationPassword) {
 			console.log('Passwords do not match');
+			props.setAlert('Password do not match', 'danger',3000);
 		} else {
 			const user = {
 				name,
@@ -106,4 +110,9 @@ const Register = () => {
 	);
 };
 
-export default Register;
+Register.propTypes = {
+	setAlert : PropTypes.func.isRequired
+}
+//props este obligatorie si de tip function si ma conectez cu ea la store
+
+export default connect(null, {setAlert})(Register);
