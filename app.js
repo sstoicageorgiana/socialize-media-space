@@ -1,5 +1,5 @@
 import express from 'express';
-import authRouter from './API/auth.js'; //pot sa customizez numele cum doresc
+import authRouter from './API/auth.js';
 import postsRouter from './API/posts.js';
 import userRouter from './API/users.js';
 
@@ -52,33 +52,5 @@ const connectDB = async () => {
 	}
 };
 connectDB();
-
-
 //#endregion
-
-
-
-/**
- * JavaDoc
- * 
- * app.js is the principle file to start the app
- * a good practice is to create a var app witch is the result of the running of principle express function 
- * in app we will have access to everything that express provides
- * start the server -listen on port 3000
- * 
- * express has method listen => receives a number that is a port, is is a number, is a mechanism of communication
- * port = ex:protocols http, ssh, ftp??
- * 
- * we want to listen on the port, but also i need to tell what to "serve", to "see", with express we use routes
- * routes should be placed under folder :api, routes, controllers, 
- * 
- * install mongoose (read-me pct 6)
- * 
- * we want to publish app somewhere, and the port should not be fixed ,on server we use : "process.env.PORT" 
- *                                                          to choose the port by deploy on cloud,  heroku
- */
-
-
-//get, post,put, delete
-// app.get('path pp /index', (fct de callback cu : req, res)=> this call back function will return what i want);
 

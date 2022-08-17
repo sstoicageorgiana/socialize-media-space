@@ -1,8 +1,11 @@
 //index.js=> deobicei avem config general
 import { combineReducers } from 'redux';
 import alert from './alert';
+import register from './register';
 
-
-export default combineReducers({alert});
+export default combineReducers({
+    alert,
+    register
+});
 
 //toate acele metode(reducere) vor fi fisiere si vor face toate lucruile ptr toate aplicatiile

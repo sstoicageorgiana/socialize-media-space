@@ -5,8 +5,9 @@ import axios from 'axios';
 import { setAlert } from '../../actions/alert'; //va fi prop a componentei
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { register } from '../../actions/register';
 
-const Register = ( props) => {
+const Register = ({ setAlert, register }) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -19,26 +20,10 @@ const Register = ( props) => {
 		e.preventDefault();
 		if (password !== confirmationPassword) {
 			console.log(`Fourth step into setting Alert with Redux-SetAlert  =>  Password do not match `);
-			props.setAlert('Password do not match', 'danger',3000);
+			setAlert('Password do not match', 'danger',3000);
 		} else {
-			const user = {
-				name,
-				email,
-				password,
-			};
-			try {
-				const config = {
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				};
-				const body = JSON.stringify(user);
+			register({ name, email, password });
 
-				const response = await axios.post('/api/users', body, config);
-				console.log(response.data);
-			} catch (error) {
-				console.log(error.response.data);
-			}
 		}
 	};
 
@@ -56,7 +41,7 @@ const Register = ( props) => {
 						name="name"
 						value={name}
 						onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-						required
+						// required
 					/>
 				</div>
 				<div className="form-group">
@@ -68,7 +53,7 @@ const Register = ( props) => {
 						onChange={(e) =>
 							setFormData({ ...formData, email: e.target.value })
 						}
-						required
+						// required
 					/>
 					<small className="form-text">
 						This site uses Gravatar so if you want a profile image, use a
@@ -84,8 +69,8 @@ const Register = ( props) => {
 						onChange={(e) =>
 							setFormData({ ...formData, password: e.target.value })
 						}
-						minLength="6"
-						autocomplete="on"
+						// minLength="6"
+						// autocomplete="on"
 					/>
 				</div>
 				<div className="form-group">
@@ -97,8 +82,8 @@ const Register = ( props) => {
 						onChange={(e) =>
 							setFormData({ ...formData, confirmationPassword: e.target.value })
 						}
-						minLength="6"
-						autocomplete="on"
+						// minLength="6"
+						// autocomplete="on"
 					/>
 				</div>
 				<input type="submit" className="btn btn-primary" value="Register" />
@@ -111,10 +96,13 @@ const Register = ( props) => {
 };
 
 Register.propTypes = {
-	setAlert : PropTypes.func.isRequired
+	setAlert : PropTypes.func.isRequired,
+	register: PropTypes.func.isRequired,
 }
 console.log(`Fifth step into setting Alert with Redux-SetAlert  =>  
 				1. props are mandatory, type function
 				2. i will connect with her at store `);
 
-export default connect(null, {setAlert})(Register);
+export default connect(null, { setAlert, register })(Register);
+
+
