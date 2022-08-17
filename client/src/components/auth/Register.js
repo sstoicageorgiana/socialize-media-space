@@ -18,7 +18,7 @@ const Register = ( props) => {
 	const submitHandler = async (e) => {
 		e.preventDefault();
 		if (password !== confirmationPassword) {
-			console.log('Passwords do not match');
+			console.log(`Fourth step into setting Alert with Redux-SetAlert  =>  Password do not match `);
 			props.setAlert('Password do not match', 'danger',3000);
 		} else {
 			const user = {
@@ -113,6 +113,8 @@ const Register = ( props) => {
 Register.propTypes = {
 	setAlert : PropTypes.func.isRequired
 }
-//props este obligatorie si de tip function si ma conectez cu ea la store
+console.log(`Fifth step into setting Alert with Redux-SetAlert  =>  
+				1. props are mandatory, type function
+				2. i will connect with her at store `);
 
 export default connect(null, {setAlert})(Register);

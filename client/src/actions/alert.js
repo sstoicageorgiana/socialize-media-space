@@ -6,7 +6,7 @@ import { v4 as uuidv } from 'uuid';
 //cnd e ceva ce trebuie sa fie unic, folosesc uuidv
 export const setAlert = (msg, alertType) => (dispatch) =>{
     const id = uuidv();
-    console.log(`test =>  id : ${id} `);
+    console.log(`first step into setting Alert with Redux-SetAlert =>  id : ${id} `);
     dispatch({
         type:SET_ALERT,
         payload:{msg, alertType, id},

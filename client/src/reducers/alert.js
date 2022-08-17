@@ -6,7 +6,7 @@ const initialState=[];
 //action care va fi rezolvat vine automat din mecanisul de redux
 export default function alert(state = initialState, action){
     const {type, payload} = action;
-    console.log(`test =>  type : ${type} `);
+    console.log(`Second step into setting Alert with Redux-SetAlert  =>  type : ${type} `);
     
     switch(type){
         case SET_ALERT:

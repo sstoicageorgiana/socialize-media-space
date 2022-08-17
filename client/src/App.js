@@ -13,7 +13,7 @@ const App = () => (
 		<Router>
 			<div className="App">
 				<Navbar />
-				<Alert/>
+				<Alert/> {/* Third step into setting Alert with Redux-SetAlert */}
 				<Route exact path="/" component={Landing} />
 				<Switch>
 					<Route exact path="/register" component={Register} />
