@@ -13,9 +13,11 @@ import store from './store';
 
 import { Provider } from 'react-redux';
 import { useEffect } from 'react';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 
-
+import Home from './components/home/Home';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -38,6 +40,7 @@ const App = () => {
 					<Switch>
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/login" component={Login} />
+						<PrivateRoute exact path="/home" component={Home} />
 					</Switch>
 				</div>
 			</Router>

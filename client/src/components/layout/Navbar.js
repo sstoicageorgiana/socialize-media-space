@@ -47,7 +47,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 		<div>
 			<nav className="navbar bg-primary">
 				<h1>
-					<Link to="/">SociaL in</Link>
+					<Link to="/">Socialize</Link>
 				</h1>
 				{isAuthenticated ? authLinks : vistorLinks}
 			</nav>
