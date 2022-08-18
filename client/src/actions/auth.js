@@ -8,6 +8,7 @@ import {
 	AUTH_ERROR,
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
+	LOGOUT,
 } from './constants';
 
 // register user
@@ -100,3 +101,8 @@ export const login =
 			});
 		}
 	};
+
+// logout / clear user details
+export const logout = () => (dispatch) => {
+	dispatch({ type: LOGOUT });
+};
