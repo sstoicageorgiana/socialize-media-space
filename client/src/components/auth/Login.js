@@ -39,13 +39,14 @@ const Login = ({login, isAuthenticated}) => {
 							setFormData({ ...formData, email: e.target.value })
 						}
 						required
-						// autocomplete="on"
+						autoComplete="on"
 					/>
 				</div>
 				<div className="form-group">
 					<input
 						type="password"
 						placeholder="Password"
+						autocomplete="on"
 						name="password"
 						value={password}
 						onChange={(e) =>
