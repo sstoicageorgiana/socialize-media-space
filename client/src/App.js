@@ -13,8 +13,6 @@ import store from './store';
 
 import { Provider } from 'react-redux';
 import { useEffect } from 'react';
-import PrivateRoute from './components/routing/PrivateRoute';
-
 
 import Home from './components/home/Home';
 import PrivateRoute from './components/routing/PrivateRoute';

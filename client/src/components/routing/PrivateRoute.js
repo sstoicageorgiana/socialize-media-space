@@ -1,7 +1,4 @@
 
-
-//component to check a users permissions and authentication status
-
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
