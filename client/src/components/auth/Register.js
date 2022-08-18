@@ -5,7 +5,7 @@ import axios from 'axios';
 import { setAlert } from '../../actions/alert'; //va fi prop a componentei
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { register } from '../../actions/register';
+import { register } from '../../actions/auth';
 
 const Register = ({ setAlert, register }) => {
 	const [formData, setFormData] = useState({
