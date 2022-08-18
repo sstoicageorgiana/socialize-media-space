@@ -1,7 +1,7 @@
 {
   "name": "social-media-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Social Media app build with node.js and React",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,9 +12,17 @@
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
+  "repository": {
+		"type": "git",
+		"url": "git+https://github.com/sstoicageorgiana/socialize-media-space.git"
+	},
   "keywords": [],
-  "author": "",
+  "author": "Stoica Georgiana Stefania",
   "license": "ISC",
+  "bugs": {
+		"url": "  https://github.com/sstoicageorgiana/socialize-media-space/issues"
+	},
+  "homepage": "https://github.com/sstoicageorgiana/socialize-media-space#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
