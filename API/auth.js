@@ -46,7 +46,7 @@ router.post('/',
     check('email', 'Please use a valid e-mail').isEmail(),
     check('password', 'The password must contain at list 4 characters').isLength({min:4}),
 ], async(req, res) => {
-    console.log(req.body);  
+     
     const errors = validationResult(req);
     console.log(errors);
     if(!errors.isEmpty()){

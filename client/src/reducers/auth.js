@@ -1,5 +1,11 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL } from '../actions/constants';
-// import { setAlert } from '../actions/alert';
+import {
+	REGISTER_SUCCESS,
+	REGISTER_FAIL,
+	USER_LOADED,
+	AUTH_ERROR,
+	LOGIN_SUCCESS,
+	LOGIN_FAIL,
+} from '../actions/constants';
 
 const initialState = {
 	token: localStorage.getItem('token'),
@@ -9,20 +15,20 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-    //type = the type of action ( REGISTER_FAIL or  REGISTER_SUCCESS ) ; payload = what backend sends back
 	const { type, payload } = action;
 	switch (type) {
 		case REGISTER_SUCCESS:
-             //put the token in local storage, to remember and use it for resources and to know who i am
+		case LOGIN_SUCCESS:
+			// put the token in the local storage
 			localStorage.setItem('token', payload.token);
-            //old state, payload(token), autenficiarea (it was done), loading:false(the moment of reg is done)
-            alert("Registration was successfully");
-            // setAlert('Registration was successfully', 'success',3000);
 			return { ...state, ...payload, isAuthenticated: true, loading: false };
 		case REGISTER_FAIL:
+		case AUTH_ERROR:
+		case LOGIN_FAIL:
 			localStorage.removeItem('token');
-            //remove token from localstorage just to be sure 
 			return { ...state, token: null, isAuthenticated: false, loading: false };
+		case USER_LOADED:
+			return { ...state, isAuthenticated: true, loading: false, user: payload };
 		default:
 			return state;
 	}
